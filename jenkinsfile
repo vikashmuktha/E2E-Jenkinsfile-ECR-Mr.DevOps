@@ -14,7 +14,7 @@ pipeline {
 
   }
 
-  
+
   parameters{
   	choice(name: 'action', choices: 'create\ndelete', description: 'Choose create/Destroy')
 
@@ -56,6 +56,20 @@ pipeline {
         
         }
         
+      }
+    }
+
+    stage('Integration Test'){
+
+      when { expression { params.action == 'create' } }
+
+      steps{
+
+        script{
+
+          mvnIntegrationTest()
+          
+        }
       }
     }
 
