@@ -17,6 +17,8 @@ pipeline {
      
     stage('Git CheckOut') {
 
+       when { expression {  params.action == 'create' } }
+
       steps{
       
       gitCheckOut(
@@ -33,6 +35,8 @@ pipeline {
     }
 
     stage('Unit Test'){
+
+       when { expression {  params.action == 'create' } }
 
       steps{
 
