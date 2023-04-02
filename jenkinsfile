@@ -58,7 +58,7 @@ pipeline {
         
       }
     }
-    /*
+    
     stage('Integration Test'){
 
        when { expression { params.action == 'create' } }
@@ -72,7 +72,7 @@ pipeline {
         }
       }
     }
-
+    /*
     stage ('Static Code Analysis') {
 
        when { expression { params.action == 'create' } }
