@@ -43,7 +43,7 @@ pipeline {
 
 
     }
-
+    /*
     stage('Unit Test'){
 
        when { expression {  params.action == 'create' } }
@@ -75,7 +75,7 @@ pipeline {
     
     stage ('Static Code Analysis') {
 
-      // squ_255b8dcb40e746d3fc324f9a2769fea9345920c5
+      
 
        when { expression { params.action == 'create' } }
 
@@ -91,7 +91,7 @@ pipeline {
       }
 
     }  
-    /*
+    
     stage ('Quality Gate Analysis') {
 
          when { expression { params.action == 'create' } }
