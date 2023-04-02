@@ -75,9 +75,7 @@ pipeline {
 
     stage('Static Code Analysis') {
 
-      // squ_575fa14503efb8556e2d4a308e9ed413549e4d0a
-
-      when { expression { params.action == 'create' } }
+       when { expression { params.action == 'create' } }
 
       steps{
 
@@ -85,22 +83,13 @@ pipeline {
 
           def SonarQubecredentialsId = 'sonar-token'
             statiCodeAnalysis(SonarQubecredentialsId)
-          
-          
-
-          /*
-          def SonarQubecredentialsId = 'sonarqube-api'
-                   QualityGateStatus(SonarQubecredentialsId)
-                        withSonarQubeEnv(credentialsId: 'sonar-token')
-                          waitForQualityGate abortPipeline: false, 
-                            credentialsId: 'sonar-token'
-          */
+                           
         }
       }
 
       stage('Quality Gate Analysis') {
 
-        when { expression { params.action == 'create' } }
+         when { expression { params.action == 'create' } }
 
         steps {
 
