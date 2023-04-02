@@ -73,7 +73,7 @@ pipeline {
       }
     }
 
-    stage('Static Code Analysis') {
+    stage ('Static Code Analysis') {
 
        when { expression { params.action == 'create' } }
 
@@ -85,13 +85,16 @@ pipeline {
             statiCodeAnalysis(SonarQubecredentialsId)
                            
         }
+
       }
 
-      stage('Quality Gate Analysis') {
+    }  
+
+    stage ('Quality Gate Analysis') {
 
          when { expression { params.action == 'create' } }
 
-        steps {
+      steps {
 
           script {
 
@@ -99,10 +102,10 @@ pipeline {
             QualityGateStatus(SonarQubecredentialsId)
 
           }
-        }
       }
-
     }
+
+    
 
   }
 
