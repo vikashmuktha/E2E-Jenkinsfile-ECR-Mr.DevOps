@@ -58,7 +58,7 @@ pipeline {
         
       }
     }
-
+    /*
     stage('Integration Test'){
 
        when { expression { params.action == 'create' } }
@@ -89,7 +89,7 @@ pipeline {
       }
 
     }  
-    /*
+    
     stage ('Quality Gate Analysis') {
 
          when { expression { params.action == 'create' } }
@@ -104,7 +104,7 @@ pipeline {
           }
       }
     }
-     */
+     
     stage ('Maven Build') {
 
       when { expression { params.action == 'create' } }
@@ -117,7 +117,7 @@ pipeline {
         }
       }
     }
-
+    */
     
 
   }
