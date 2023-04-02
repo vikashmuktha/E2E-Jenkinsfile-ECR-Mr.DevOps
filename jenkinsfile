@@ -1,0 +1,31 @@
+@Library('my-shared-library') _
+
+Pipeline{
+  
+
+  agentany
+
+  parameters{
+  	choice(name: 'action', choices: 'create\ndelete', description: 'Choose create/Destroy')
+
+  }
+
+  stages{
+
+    when { expression {  params.action == 'create' } }
+     
+    stage('Code CheckOut'){
+      
+      gitCheckOut(
+
+        branch: "main",
+
+        url: "https://github.com/vikashmuktha/E2E-Jenkinsfile-ECR-Mr.DevOps.git"
+
+      )
+
+
+    }
+  }
+
+}
