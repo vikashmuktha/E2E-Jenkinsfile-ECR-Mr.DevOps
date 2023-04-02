@@ -147,7 +147,21 @@ pipeline {
 
           dockerImageScan("${params.aws_account_id}","${params.Region}","${params.ECR_REPO_NAME}")
 
-          
+
+        }
+      }
+    }
+
+    stage('Image Push to ECR') {
+
+      when { expression { params.action == 'create' } }
+
+      steps {
+
+        script {
+
+          dockerImagePush("${params.aws_account_id}","${params.Region}","${params.ECR_REPO_NAME}")
+
         }
       }
     }
