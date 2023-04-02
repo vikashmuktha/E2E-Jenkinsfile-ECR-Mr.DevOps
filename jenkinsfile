@@ -89,7 +89,7 @@ pipeline {
       }
 
     }  
-
+    /*
     stage ('Quality Gate Analysis') {
 
          when { expression { params.action == 'create' } }
@@ -102,6 +102,19 @@ pipeline {
             QualityGateStatus(SonarQubecredentialsId)
 
           }
+      }
+    }
+     */
+    stage ('Maven Build') {
+
+      when { expression { params.action == 'create' } }
+
+      steps {
+
+        script {
+
+          mvnBuils()
+        }
       }
     }
 
