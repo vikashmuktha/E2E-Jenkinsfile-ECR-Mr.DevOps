@@ -46,7 +46,7 @@ pipeline {
 
 
     }
-    
+    /*
     stage('Unit Test'){
 
        when { expression {  params.action == 'create' } }
@@ -94,7 +94,7 @@ pipeline {
       }
 
     }  
-    /*
+    
     stage ('Quality Gate Analysis') {
 
          when { expression { params.action == 'create' } }
