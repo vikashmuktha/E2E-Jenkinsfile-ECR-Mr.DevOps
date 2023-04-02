@@ -98,6 +98,21 @@ pipeline {
         }
       }
 
+      stage('Quality Gate Analysis') {
+
+        when { expression { params.action == 'create' } }
+
+        steps {
+
+          script {
+
+            def SonarQubecredentialsId = 'sonar-token'
+            QualityGateStatus(SonarQubecredentialsId)
+
+          }
+        }
+      }
+
     }
 
   }
