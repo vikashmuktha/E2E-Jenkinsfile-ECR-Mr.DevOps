@@ -5,6 +5,13 @@ pipeline {
 
   agent any
 
+  tools
+
+  // Global Tool Configuration
+
+  maven 'maven-3.9'
+
+
   parameters{
   	choice(name: 'action', choices: 'create\ndelete', description: 'Choose create/Destroy')
 
