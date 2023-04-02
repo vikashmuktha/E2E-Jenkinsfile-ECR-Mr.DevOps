@@ -91,7 +91,7 @@ pipeline {
       }
 
     }  
-    /*
+    
     stage ('Quality Gate Analysis') {
 
          when { expression { params.action == 'create' } }
@@ -100,13 +100,13 @@ pipeline {
 
           script {
 
-            def SonarQubecredentialsId = 'sonar-token'
+            def SonarQubecredentialsId = 'sonar-secret-1'
             QualityGateStatus(SonarQubecredentialsId)
 
           }
       }
     }
-     
+    /* 
     stage ('Maven Build') {
 
       when { expression { params.action == 'create' } }
