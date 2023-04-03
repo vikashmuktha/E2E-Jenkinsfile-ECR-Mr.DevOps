@@ -100,7 +100,7 @@ pipeline {
       }
 
     }  
-    
+    /*
     stage ('Quality Gate Analysis') {
 
          when { expression { params.action == 'create' } }
@@ -115,7 +115,7 @@ pipeline {
           }
       }
     }
-     
+    */
     stage ('Maven Build') {
 
       when { expression { params.action == 'create' } }
@@ -157,7 +157,7 @@ pipeline {
         }
       }
     }
-    /*
+    
     stage('Image Push to ECR') {
 
       when { expression { params.action == 'create' } }
@@ -171,7 +171,7 @@ pipeline {
         }
       }
     }
-     
+    /* 
     stage('Image CleanUp in ECR') {
 
       when { expression { params.action == 'create' } }
