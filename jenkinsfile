@@ -187,9 +187,9 @@ pipeline {
     }
     */
 
-    stage {
+    stage('Connect to EKS cluster') {
 
-      when { expression { params.action == 'create' } }
+        when { expression { params.action == 'create' } }
 
       steps {
 
@@ -205,6 +205,8 @@ pipeline {
         }
       }
     }
+    
+
   }
 
 }
