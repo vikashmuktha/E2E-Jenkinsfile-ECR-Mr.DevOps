@@ -52,7 +52,7 @@ pipeline {
 
 
     }
-    /*    
+        
     stage('Unit Test'){
 
        when { expression {  params.action == 'create' } }
@@ -157,11 +157,11 @@ pipeline {
         }
       }
     }
-    
+    /*
     stage('Image Push to ECR') {
 
       when { expression { params.action == 'create' } }
-
+      
       steps {
 
         script {
@@ -206,7 +206,7 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('Deploy App in EKS') {
 
       when { expression {params.action == 'create' } }
 
