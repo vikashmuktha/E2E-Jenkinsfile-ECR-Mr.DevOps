@@ -1,0 +1,44 @@
+https://www.youtube.com/watch?v=GI4Kt8gBIA0&ab_channel=AmazonWebServices
+
+# we can perform this in k8s
+# kubectl get nodes
+# aws sts get-caller-identity
+#ls -la
+#aws eks --region ${Region} update-kubeconfig --name ${Node name}
+# cd .kube/
+# vim config
+# kubectl get svc
+# kubectl edit configmap aws-auth -n kube-system
+      # Please edit the object below. Lines beginning with a '#' will be ignored,
+      # and an empty file will abort the edit. If an error occurs while saving this file will be
+      # reopened with the relevant failures.
+      #
+      #apiVersion: v1
+      #data:
+        #mapRoles: |
+          #- groups:
+           # - system:bootstrappers
+            #- system:nodes
+            #rolearn: arn:aws:iam::396343469010:role/eksctl-my-demo-ep-nodegroup-ng-3a-NodeInstanceRole-1GJLUIRGPYSX6
+            #username: system:node:{{EC2PrivateDNSName}}
+        #+++++++++++++++++++++++++++++This is Adding Lines in existing one+++++++++++++++++++++++++++++++++
+         # - rolearn: arn:aws:iam::396343469010:user/terraform-user
+          #  username: terraform-user
+           # groups:
+           # - system:masters
+        #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++    
+      #kind: ConfigMap
+      #metadata:
+       # creationTimestamp: "2023-04-03T06:43:33Z"
+        #name: aws-auth
+        #namespace: kube-system
+        #resourceVersion: "19549"
+        #uid: a4c631d4-36c4-4a34-bff1-485b221afae6
+# kubectl get deplopment
+
+# now we can go through the jenkins server
+
+# copy the config file in k8s and paste it the to jenkins user -> su - jenkins -> mkdir .kube -> vim config -> we can add the connect here.
+# aws sts get-caller-identity
+# aws eks --region ${Region} update-kubeconfig --name ${Node name}
+# now we can check in jenkins server like -> kubectl get nodes/pods/deployment..........
