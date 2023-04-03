@@ -1,33 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myjavaapp-deployment
+  name: nginx-deployment
+  labels:
+    app: nginx
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: myjavaapp
+      app: nginx
   template:
     metadata:
       labels:
-        app: myjavaapp
+        app: nginx
     spec:
       containers:
-      - name: myjavaapp
-        image: 396343469010.dkr.ecr.us-east-1.amazonaws.com/checking_0402:v0
-        ports:
-        - containerPort: 8080
+        - name: nginx
+          image: 396343469010.dkr.ecr.us-east-1.amazonaws.com/checking_0402:v3
+          ports:
+            - containerPort: 80
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: myjavaapp-service
+  name: nginx-service
 spec:
-  selector:
-    app: myjavaapp
-  ports:
-  - name: http
-    port: 80
-    targetPort: 8080
   type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
